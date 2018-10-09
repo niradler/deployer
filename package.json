@@ -1,0 +1,41 @@
+{
+  "name": "deployer",
+  "description": "run deploy script from remote by http",
+  "version": "0.0.1",
+  "author": "Nir Adler @niradler",
+  "bin": {
+    "deployer": "./bin/run"
+  },
+  "bugs": "https://github.com/niradler/deployer/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.2",
+    "@oclif/config": "^1.8.6",
+    "@oclif/plugin-help": "^2.1.2",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/niradler/deployer",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "deployer"
+  },
+  "repository": "niradler/deployer",
+  "scripts": {
+    "test": "echo NO TESTS"
+  }
+}
