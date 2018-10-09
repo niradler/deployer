@@ -1,5 +1,5 @@
 const {Command, flags} = require('@oclif/command');
-const {argsMap,flagsMap} = require('./handlers');
+const {argsMap, flagsMap} = require('./handlers');
 
 const {
   PORT = 544
@@ -7,21 +7,21 @@ const {
 
 class DeployerCommand extends Command {
   async run() {
-    const {flags,args} = this.parse(DeployerCommand);
+    const {flags, args} = this.parse(DeployerCommand);
     try {
       let output = "";
       for (const key in args) {
-        if(args[key]) {
+        if (args[key]) {
           output = await argsMap[args[key]](args)
         }
       }
-      for (const key in flags) output =  await flagsMap[key](flags);
+      for (const key in flags)
+        output = await flagsMap[key](flags);
 
-        this.log(output)
-      }
-    catch (error) {
+      this.log(output)
+    } catch (error) {
       this.error('Deployer Error: ' + error.message);
-    this.exit(1)
+      this.exit(1)
     }
 
   }
@@ -35,12 +35,17 @@ Visit us at https://github.com/niradler/deployer.git
 DeployerCommand.flags = {
   version: flags.version({char: 'v'}),
   help: flags.help({char: 'h'}),
-  path: flags.string({char: 'p', description: 'absolute path to deploy.sh'}),
+  path: flags.string({char: 'p', description: 'absolute path to deploy.sh'})
 }
 
 DeployerCommand.args = [
-  {name:'config',description: 'print config file.'},
-  {name:'run',description: 'run local server.'}
+  {
+    name: 'config',
+    description: 'print config file.'
+  }, {
+    name: 'run',
+    description: 'run local server.'
+  }
 ]
 
 module.exports = DeployerCommand
