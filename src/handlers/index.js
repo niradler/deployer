@@ -35,7 +35,7 @@ h.argsMap = {
     }
   },
   run: (args) => new Promise((resolve,reject)=>{
-    const script = exec('nohup node server/index.js', (error, stdout, stderr) => {
+    const script = exec('sudo npm i -g pm2 && pm2 start node server/index.js', (error, stdout, stderr) => {
       if (error !== null) {
         reject(error);
       }
@@ -44,7 +44,7 @@ h.argsMap = {
     script.stdout.pipe(process.stdout);
   }),
   service: (args) => new Promise((resolve,reject)=>{
-    const script = exec('sudo cp ./deployer.service /etc/systemd/system && sudo systemctl start deployer && journalctl -u deployer', (error, stdout, stderr) => {
+    const script = exec('sudo cp ./deployer.service /etc/systemd/system && systemctl start deployer && journalctl -u deployer', (error, stdout, stderr) => {
       if (error !== null) {
         reject(error);
       }
