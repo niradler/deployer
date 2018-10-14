@@ -11,12 +11,13 @@ class Deployment {
                     console.log(`exec error: ${error}`);
                 }
             });
-            return res.json('deployed!')
+            script.stdout.pipe(process.stdout);
+            return res.json('deployment script running!')
         } catch (error) {
             console.log(error)
             return res.json('deployment failed!')
         }
-       
+
     }
 }
 
