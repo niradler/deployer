@@ -1,12 +1,13 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const morgan = require('morgan')
 const routes =require('./routes');
-const services =require('./Sevices');
+const services =require('./services');
 const app = express()
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(morgan('combined'))
 app.use('/',async (req,res,next) => {
     try {
         const config = await services.getConfig();

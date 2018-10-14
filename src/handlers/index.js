@@ -24,9 +24,8 @@ h.argsMap = {
       throw new Error(error.message);
     }
   },
-  run: (args) => new Promise((resolve,reject)=>{//nohup node server/index.js
+  run: (args) => new Promise((resolve,reject)=>{
     const script = exec('node server/index.js', (error, stdout, stderr) => {
-      console.log(error,stdout,stderr)
       if (error !== null) {
         reject(error);
       }

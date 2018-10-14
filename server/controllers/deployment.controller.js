@@ -4,17 +4,16 @@ class Deployment {
      static async deploy(req,res) {
         try {
             const config = await services.getConfig();
-            const script =  exec('sh ./deploy.sh',
+            const script =  exec('sh ' + config.PATH,
             (error, stdout, stderr) => {
-                console.log(`${stdout}`);
                 if (error !== null) {
-                    console.log(`exec error: ${error}`);
+                  throw new Error(`deployer: deployment script: ${error}`);
                 }
             });
             script.stdout.pipe(process.stdout);
             return res.json('deployment script running!')
         } catch (error) {
-            console.log(error)
+            console.error(error)
             return res.json('deployment failed!')
         }
 
