@@ -1,10 +1,10 @@
 [Unit]
-Description=My app
+Description=deployer
 
 [Service]
 ExecStart=/home/ubuntu/app/deployer/server/index.js
 Restart=always
-User=nobody
+User=ubuntu
 Group=nogroup
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=production
