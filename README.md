@@ -10,25 +10,6 @@ run deploy script from remote by http
 
 
 # Usage
-deployer -p=/user/scripts/deploy.sh // make sure chmod +x deploy.sh
-deployer config
-sudo deployer run
-
-# Commands
-USAGE
-  $ deployer [CONFIG] [RUN]
-
-ARGUMENTS
-  CONFIG  print config file.
-  RUN     run local server.
-
-OPTIONS
-  -c, --port=port  change port for the web server.
-  -h, --help       show CLI help
-  -p, --path=path  absolute path to deploy.sh
-  -v, --version    show CLI version
-
-DESCRIPTION
-  ...
-  Visit us at https://github.com/niradler/deployer.git
-
+- deployer -p=/user/scripts/deploy.sh // make sure chmod +x deploy.sh
+- deployer config
+- sudo deployer run
