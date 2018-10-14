@@ -25,13 +25,14 @@ h.argsMap = {
     }
   },
   run: (args) => new Promise((resolve,reject)=>{//nohup node server/index.js
-    exec('node server/index.js', (error, stdout, stderr) => {
+    const script = exec('node server/index.js', (error, stdout, stderr) => {
       console.log(error,stdout,stderr)
       if (error !== null) {
         reject(error);
       }
       resolve(stdout)
     });
+    script.stdout.pipe(process.stdout);
   })
 }
 

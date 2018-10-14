@@ -1,5 +1,5 @@
 const exec = require('child_process').exec;
-const services = require('../Sevices');
+const services = require('../services');
 class Deployment {
      static async deploy(req,res) {
         try {
