@@ -25,6 +25,15 @@ h.argsMap = {
     }
   },
   run: (args) => new Promise((resolve,reject)=>{
+    const script = exec('nohup node server/index.js', (error, stdout, stderr) => {
+      if (error !== null) {
+        reject(error);
+      }
+      resolve(stdout)
+    });
+    script.stdout.pipe(process.stdout);
+  }),
+  service: (args) => new Promise((resolve,reject)=>{
     const script = exec('sudo cp ./deployer.service /etc/systemd/system && sudo systemctl start deployer && journalctl -u deployer', (error, stdout, stderr) => {
       if (error !== null) {
         reject(error);
