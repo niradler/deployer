@@ -12,6 +12,16 @@ h.flagsMap = {
     } catch (error) {
       throw new Error(error.message);
     }
+  },
+  port: async(flags) => {
+    try {
+      const port = flags.port;
+      await helpers.setConfig('PORT', port);
+      const config = await helpers.getConfig();
+      return config;
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 };
 

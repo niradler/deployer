@@ -25,5 +25,5 @@ app.use('/',async (req,res,next) => {
 app.use('/', routes);
 
 // initialize the server
-const PORT = process.env.PORT || 544;
+const PORT = process.env.PORT || 8686;
 app.listen(PORT, () => console.log('App listening on port '+ PORT))

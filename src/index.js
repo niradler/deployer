@@ -35,7 +35,8 @@ Visit us at https://github.com/niradler/deployer.git
 DeployerCommand.flags = {
   version: flags.version({char: 'v'}),
   help: flags.help({char: 'h'}),
-  path: flags.string({char: 'p', description: 'absolute path to deploy.sh'})
+  path: flags.string({char: 'p', description: 'absolute path to deploy.sh'}),
+  port: flags.string({char: 'cp', description: 'change port for the web server.'})
 }
 
 DeployerCommand.args = [
