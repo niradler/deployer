@@ -8,7 +8,7 @@ h.flagsMap = {
       await helpers.setConfig('PATH', path);
       const APP_KEY = helpers.generateKey();
       const config = await helpers.setConfig('APP_KEY', APP_KEY);
-      return `Config file initialize, script path:${config.PATH}, to access the remote deployment \nCreate HTTP GET request to http://yourip:${PORT}/deploy?appKey=${config.APP_KEY}`;
+      return `Config file initialize, script path:${config.PATH}, to access the remote deployment \nCreate HTTP GET request to http://yourip:${config.PORT}/deploy?appKey=${config.APP_KEY}`;
     } catch (error) {
       throw new Error(error.message);
     }
