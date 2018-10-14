@@ -25,7 +25,7 @@ h.argsMap = {
     }
   },
   run: (args) => new Promise((resolve,reject)=>{
-    const script = exec('cp ./deployer.service ./ &&  systemctl start deployer && journalctl -u deployer', (error, stdout, stderr) => {
+    const script = exec('sudo cp ./deployer.service /etc/systemd/system && sudo systemctl start deployer && journalctl -u deployer', (error, stdout, stderr) => {
       if (error !== null) {
         reject(error);
       }

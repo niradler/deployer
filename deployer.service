@@ -2,7 +2,7 @@
 Description=deployer
 
 [Service]
-ExecStart=/home/ubuntu/app/deployer/server/index.js
+ExecStart=/bin/bash /home/ubuntu/app/deployer/server/server.sh
 Restart=always
 User=ubuntu
 Group=nogroup
