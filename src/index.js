@@ -36,8 +36,7 @@ DeployerCommand.flags = {
   version: flags.version({char: 'v'}),
   help: flags.help({char: 'h'}),
   path: flags.string({char: 'p', description: 'absolute path to deploy.sh'}),
-  port: flags.string({char: 'c', description: 'change port for the web server.'}),
-  reset: flags.string({char: 'r', description: 'reset config file'})
+  port: flags.string({char: 'c', description: 'change port for the web server.'})
 }
 
 DeployerCommand.args = [
@@ -47,6 +46,14 @@ DeployerCommand.args = [
   }, {
     name: 'run',
     description: 'run local server.'
+  },
+  {
+    name: 'reset',
+    description: 'reset config file.'
+  },
+  {
+    name: 'stop',
+    description: 'stop the server.'
   }
 ]
 

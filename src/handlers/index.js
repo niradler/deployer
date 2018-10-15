@@ -26,6 +26,15 @@ h.flagsMap = {
 };
 
 h.argsMap = {
+  stop: async(args) => {
+    const script = exec('pm2 stop deployer', (error, stdout, stderr) => {
+      if (error !== null) {
+        reject(error);
+      }
+      resolve(stdout)
+    });
+    script.stdout.pipe(process.stdout);
+  },
   reset: async(args) => {
     try {
       const config = await helpers.hardReset();
@@ -43,7 +52,7 @@ h.argsMap = {
     }
   },
   run: (args) => new Promise((resolve,reject)=>{
-    const script = exec('sudo npm i -g pm2 && pm2 start server/index.js', (error, stdout, stderr) => {
+    const script = exec('sudo npm i -g pm2 && pm2 start server/index.js --name deployer', (error, stdout, stderr) => {
       if (error !== null) {
         reject(error);
       }
