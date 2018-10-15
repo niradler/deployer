@@ -1,7 +1,7 @@
 {
   "name": "remote-deployer",
   "description": "run deploy script from remote by http",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Nir Adler @niradler",
   "bin": {
     "deployer": "./bin/run"

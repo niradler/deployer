@@ -10,7 +10,7 @@ run deploy script from remote by http
 
 
 # Usage
-- deployer -p=/user/scripts/deploy.sh // make sure chmod +x deploy.sh
+- deployer -p="/user/scripts/deploy.sh" // make sure chmod +x deploy.sh
 - deployer config
 - sudo deployer run
 
