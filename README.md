@@ -13,3 +13,6 @@ run deploy script from remote by http
 - deployer -p=/user/scripts/deploy.sh // make sure chmod +x deploy.sh
 - deployer config
 - sudo deployer run
+
+### npm
+- npm i -g remote-deployer
