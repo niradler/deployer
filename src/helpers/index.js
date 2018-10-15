@@ -25,14 +25,12 @@ s.setConfig = (key,value) => new Promise((resolve,reject)=> {
   })
 })
 
-s.restore = () => new Promise((resolve,reject)=> {
-  s.getConfig('./deployer.config.bk.json').then(config=>{
-    config['UPDATED_AT'] = new Date();
+s.hardReset = () => new Promise((resolve,reject)=> {
+  const config = {"PORT":"8686","APP_KEY":"","PATH":"","UPDATED_AT":""};
     fs.writeFile('./deployer.config.json', JSON.stringify(config), (err) =>{
       if(err) reject(err);
 
      resolve(config)
-  });
   })
 })
 
