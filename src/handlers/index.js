@@ -26,6 +26,14 @@ h.flagsMap = {
 };
 
 h.argsMap = {
+  reset: async(args) => {
+    try {
+      const config = await helpers.restore();
+      return config;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
   config: async(args) => {
     try {
       const config = await helpers.getConfig();
